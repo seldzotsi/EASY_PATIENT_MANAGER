@@ -1,0 +1,103 @@
+﻿<%@ Master Language="VB" CodeFile="app_design.master.vb" Inherits="MASTER_app_design" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+   		<div class="navbar-inner">
+   			<div class="container">
+
+   				<a href="../default.aspx"class="brand">Patient CASE HISTORY<asp:SiteMapDataSource ID="SiteMapDataSource2"
+                       runat="server" />
+                   </a> 
+                    <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="btn" />
+                <div class="continer pull-right">
+    
+                    <asp:Menu ID="Menu2" runat="server" CssClass="btn" 
+                        DataSourceID="SiteMapDataSource2" Orientation="Horizontal" 
+                        StaticDisplayLevels="2" Width="500px">
+                        <StaticMenuItemStyle Width="100px" />
+                    </asp:Menu>
+       
+         </div>   
+   			</div>
+   	          </div>
+              </div>
+              <hr />
+    
+   <br />
+
+
+              <div class="container">
+              <div class="row">
+              <div class="span12">
+              <h1>
+                  <asp:ContentPlaceHolder ID="ContentPlaceHolder5" runat="server">
+                  </asp:ContentPlaceHolder>
+                  </h1>
+              </div>
+
+               <div class="span9 pull-right">
+               <p>  
+               <!--DB CONTENT SPACE-->
+               <!--DB CONTENT SPACE--><!--DB CONTENT SPACE-->
+               <!--APP NAVIGATION PANE-->
+                   </p>
+
+               <!--DB CONTENT SPACE-->
+               <!--DB CONTENT SPACE-->
+               <!--DB CONTENT SPACE-->
+               <!--DB CONTENT SPACE-->
+               <!--DB CONTENT SPACE-->
+               <!--DB CONTENT SPACE-->
+               <!--DB CONTENT SPACE-->
+               <!--DB CONTENT SPACE-->
+
+                   <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                   </asp:ContentPlaceHolder>
+
+          </div>
+              <div class="span2 well">
+                  <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+                      <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource3">
+                      </asp:TreeView>
+                      <p>
+                          <br />
+                      </p>
+                      <p>
+                      </p>
+                      <p>
+                      </p>
+                      <p>
+                          <asp:SiteMapDataSource ID="SiteMapDataSource3" SiteMapProvider="usersitemap" runat="server" />
+                      </p>
+                      <p>
+                      </p>
+                  </asp:ContentPlaceHolder>
+        </div>
+              
+              </div>
+                     <hr />
+                            <footer>
+        <p>&copy; Company 2013</p>
+      </footer>
+                     </div>
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

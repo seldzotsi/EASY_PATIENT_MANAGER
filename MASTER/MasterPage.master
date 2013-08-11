@@ -1,0 +1,115 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MASTER_MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head runat="server">
+    <title></title>
+    
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+   		<div class="navbar-inner">
+   			<div class="container">
+
+   				<a href="#"class="brand">Basic Patient Record<asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+                </a>
+                <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="btn" />
+                
+                <div class="continer pull-right">
+                
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                    <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" 
+                        Orientation="Horizontal" StaticDisplayLevels="2" Width="500px" 
+                        CssClass="btn">
+                        <StaticMenuItemStyle Width="100px" />
+                    </asp:Menu>
+        </asp:ContentPlaceHolder>
+             
+        
+         </div> 
+          
+   			</div>
+
+   	</div>
+    </div>
+    <hr />
+    
+   <br />
+    
+        <div class="container">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                <asp:SiteMapDataSource ID="SiteMapDataSource3" SiteMapProvider="usersitemap" runat="server" />
+                <asp:Menu ID="Menu2" runat="server" Orientation="Horizontal" 
+                    StaticDisplayLevels="2" DataSourceID="SiteMapDataSource3" CssClass="btn" 
+                    Width="98%">
+                    <StaticMenuItemStyle Width="100px" />
+                </asp:Menu>
+
+            </asp:ContentPlaceHolder>
+            <br />
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <!--<div class="row">-->
+      <!--<div class="span12">-->
+      <div class="hero-unit">
+        <h1>Basic Patient Record</h1>
+
+        <p>Bringing Technology To Patient Records </p>
+        <br />
+        <p><a href="learn_more.aspx" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+        <br />
+        
+
+        <!--</div>-->
+      <!--</div>-->
+      </div>
+
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+          <h2>Generate Reports</h2>
+          <p> <img src="stats.jpg" width="60%" height="7%" border="1"/><br /><br />
+          This module enables you to create Prescriptions and Referral Forms with ease. </p>
+           <a class="btn" href="#">View details &raquo;</a></p> 
+        </div>
+        <div class="span4">
+          <h2>Eliminate Folders</h2>
+          <p> <img src="folder.jpg" width="54%" height="10%" border="1"/><br />This System eliminates the use of Paper Folder as a means of Storage of Paient Records.  </p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+       </div>
+        <div class="span4">
+          <h2>Secure Storage </h2>
+          <p><p> <img src="secdb.jpg" width="54%" height="10%" border="1"/><br /><br />Basic Patient Record offers the most sophisticated storage features around making sure your Health Records are safe and secure.</p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <hr/>
+      
+
+       <footer>
+     
+        <p>&copy; Patient Manager 2013</p>
+        
+      </footer>
+
+    </div> <!-- /container -->
+
+   
+
+    <div>
+    
+    </div>
+    </form>
+</body>
+</html>

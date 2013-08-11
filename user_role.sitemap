@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="#" title=""  description="">
+    <siteMapNode url="~/NURSE/search_patient.aspx" title="UPDATE"  description="UPDATE PATIENT PERSONAL DETAILS" />
+    <siteMapNode url="~/NURSE/search.aspx" title="SEARCH"  description="SEARCH FOR PATIENT" />
+    <siteMapNode url="~/NURSE/register_patient.aspx" title="REGISTER"  description="REGISTER PATIENT" />
+    
+    <siteMapNode url="~/NURSE/opd_vitals.aspx" title="VITALS"  description="CAPTURE BASELINE VITALS" />
+    
+    
+    <siteMapNode url="~/DR/medical_summary.aspx" title="CONSULTING ROOM"  description="VIEW SUMMARY OF MEDICAL HISTORY" />
+    <!--<siteMapNode url="~/DR/consult.aspx" title="CONSULT"  description="CONSULTATION ROOM" />
+    <siteMapNode url="~/DR/DR_prescription.aspx" title="PESCRIPTION"  description="GIVE PRESCRIPTION" />
+    <siteMapNode url="~/DR/request_lab.aspx" title="LAB-REQUEST"  description="MEDICAL HISTORY" />
+    <siteMapNode url="~/DR/medical_history.aspx" title="HISTORY"  description="MEDICAL HISTORY" />-->
+    <siteMapNode url="~/hosp_admin/add_employee.aspx" title="ADD USER"  description="ADD USERS AND DEFINE THEIR ROLES IN THE SYSTEM" />
+    <siteMapNode url="~/hosp_admin/manage_users.aspx" title="MANAGE USER"  description="PERFORM USER MANAGEMENT TASKS" />
+  </siteMapNode>
+</siteMap>

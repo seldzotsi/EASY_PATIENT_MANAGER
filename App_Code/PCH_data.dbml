@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PCH_DB" Class="PCH_dataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=ANONYMOUS\DATA_STORE;Initial Catalog=PCH_DB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PCH_DBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.SYMPTON" Member="SYMPTONs">
+    <Type Name="SYMPTON">
+      <Column Name="SYMPTON_ID" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SYMPTON" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="SYMPTON_CONSULTATION" Member="CONSULTATIONs" ThisKey="SYMPTON_ID" OtherKey="SYMPTONS_ID" Type="CONSULTATION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.USERS" Member="USERs">
+    <Type Name="USER">
+      <Column Name="USER_ID" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FIRST_NAME" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="LAST_NAME" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="PHONE" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="IMAGE" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.REFFERAL" Member="REFFERALs">
+    <Type Name="REFFERAL">
+      <Column Name="USER_ID" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="PATIENT_ID" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="REFFERED_TO" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="CONSULT_ID" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="REF_ID" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="PATIENT_REFFERAL" Member="PATIENT" ThisKey="PATIENT_ID" OtherKey="PATIENT_ID" Type="PATIENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PRESCRIPTION_LIST" Member="PRESCRIPTION_LISTs">
+    <Type Name="PRESCRIPTION_LIST">
+      <Column Name="PRESCRIPTION_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PRESCRIPTION_ID" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="PRESCRIPTION_LIST_PAT_PRESCRIPTION" Member="PAT_PRESCRIPTIONs" ThisKey="PRESCRIPTION_ID" OtherKey="PRESCRIPTION_ID" Type="PAT_PRESCRIPTION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PATIENT" Member="PATIENTs">
+    <Type Name="PATIENT">
+      <Column Name="PATIENT_ID" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FIRST_NAME" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="LAST_NAME" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="GENDER" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ADDRESS" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="IMAGE" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="REGISTER_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="PATIENT_REFFERAL" Member="REFFERALs" ThisKey="PATIENT_ID" OtherKey="PATIENT_ID" Type="REFFERAL" />
+      <Association Name="PATIENT_PAT_PRESCRIPTION" Member="PAT_PRESCRIPTIONs" ThisKey="PATIENT_ID" OtherKey="PATIENT_ID" Type="PAT_PRESCRIPTION" />
+      <Association Name="PATIENT_OPD" Member="OPDs" ThisKey="PATIENT_ID" OtherKey="PATIENT_ID" Type="OPD" />
+      <Association Name="PATIENT_NEXT_OF_KIN" Member="NEXT_OF_KIN" ThisKey="PATIENT_ID" OtherKey="PATIENT_ID" Type="NEXT_OF_KIN" Cardinality="One" />
+      <Association Name="PATIENT_CONSULTATION" Member="CONSULTATIONs" ThisKey="PATIENT_ID" OtherKey="PATIENT_ID" Type="CONSULTATION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PAT_PRESCRIPTION" Member="PAT_PRESCRIPTIONs">
+    <Type Name="PAT_PRESCRIPTION">
+      <Column Name="PRESCRIPTION_ID" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="PATIENT_ID" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DOSAGE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FREQUENCEY" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DURATION" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MODE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PATIENT_PAT_PRESCRIPTION" Member="PATIENT" ThisKey="PATIENT_ID" OtherKey="PATIENT_ID" Type="PATIENT" IsForeignKey="true" />
+      <Association Name="PRESCRIPTION_LIST_PAT_PRESCRIPTION" Member="PRESCRIPTION_LIST" ThisKey="PRESCRIPTION_ID" OtherKey="PRESCRIPTION_ID" Type="PRESCRIPTION_LIST" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OPD" Member="OPDs">
+    <Type Name="OPD">
+      <Column Name="PATIENT_ID" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_ID" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TEMPERATURE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BP" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="WEIGHT" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="HEGHT" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="OPD_ID" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="PATIENT_OPD" Member="PATIENT" ThisKey="PATIENT_ID" OtherKey="PATIENT_ID" Type="PATIENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NEXT_OF_KIN" Member="NEXT_OF_KINs">
+    <Type Name="NEXT_OF_KIN">
+      <Column Name="PATIENT_ID" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FIRST_NAME" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="LAST_NAME" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="ADDRESS" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MOBILE" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="PATIENT_NEXT_OF_KIN" Member="PATIENT" ThisKey="PATIENT_ID" OtherKey="PATIENT_ID" Type="PATIENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CONSULTATION" Member="CONSULTATIONs">
+    <Type Name="CONSULTATION">
+      <Column Name="USER_ID" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="PATIENT_ID" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SYMPTONS_ID" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CONSULT_ID" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="PATIENT_CONSULTATION" Member="PATIENT" ThisKey="PATIENT_ID" OtherKey="PATIENT_ID" Type="PATIENT" IsForeignKey="true" />
+      <Association Name="SYMPTON_CONSULTATION" Member="SYMPTON" ThisKey="SYMPTONS_ID" OtherKey="SYMPTON_ID" Type="SYMPTON" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
